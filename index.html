@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多洛米蒂 · 17 日行程手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#ECE6DA; --stone-deep:#DCD3C2;
+    --spruce:#16252B; --spruce-soft:#21353C;
+    --ink:#1E2C2B; --ink-soft:#5A6A66;
+    --teal:#2C7A82; --teal-bright:#3FA0A6;
+    --glow:#D9633F; --glow-soft:#E68A66;
+    --line:rgba(30,44,43,.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--stone);color:var(--ink);
+    font-family:"Instrument Sans","Noto Sans TC",system-ui,sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px;}
+  .serif{font-family:"Fraunces","Noto Sans TC",serif;}
+  .mono{font-family:"DM Mono","Noto Sans TC",monospace;}
+  .eyebrow{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.28em;
+    font-size:11.5px;color:var(--glow);font-weight:500;}
+
+  /* hero */
+  .hero{position:relative;min-height:96vh;display:flex;flex-direction:column;justify-content:flex-end;
+    color:#fff;background:linear-gradient(180deg,rgba(10,18,22,.10) 0%,rgba(10,18,22,.20) 40%,rgba(13,22,26,.86) 100%),var(--spruce);isolation:isolate;}
+  .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;}
+  .hero__inner{padding:0 22px 7vh;max-width:920px;margin:0 auto;width:100%;}
+  .hero .kicker{font-family:"DM Mono",monospace;letter-spacing:.3em;text-transform:uppercase;font-size:12px;color:var(--glow-soft);margin-bottom:18px;}
+  .hero h1{font-family:"Fraunces","Noto Sans TC",serif;font-weight:600;font-size:clamp(64px,17vw,150px);line-height:.92;margin:0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(16px,2.4vw,20px);max-width:30em;margin:22px 0 0;color:rgba(255,255,255,.86);}
+  .stats{display:flex;flex-wrap:wrap;gap:30px 46px;margin-top:38px;padding-top:30px;border-top:1px solid rgba(255,255,255,.22);}
+  .stat .n{font-family:"Fraunces",serif;font-size:38px;line-height:1;font-weight:500;}
+  .stat .l{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:8px;}
+  .scrollcue{position:absolute;top:34px;right:24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.7);text-transform:uppercase;}
+
+  .ridge{display:block;width:100%;height:auto;margin:0;}
+
+  .intro{padding:74px 0 8px;}
+  .lede{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(22px,3.4vw,30px);line-height:1.4;max-width:24em;margin:0 0 14px;}
+  .lede b{color:var(--teal);font-weight:600;}
+  .route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:34px 0 8px;font-family:"DM Mono",monospace;font-size:13px;color:var(--ink-soft);}
+  .route span{background:var(--stone-deep);padding:5px 11px;border-radius:20px;color:var(--ink);}
+  .route i{color:var(--glow);font-style:normal;}
+
+  .tipsband{background:var(--spruce);color:#fff;margin-top:54px;padding:60px 0;}
+  .tipsband h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(26px,4vw,36px);margin:0 0 6px;}
+  .tipsband .eyebrow{color:var(--glow-soft);}
+  .tipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin-top:34px;background:rgba(255,255,255,.1);border-radius:14px;overflow:hidden;}
+  .tip{background:var(--spruce);padding:22px 22px 24px;}
+  .tip .t{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--glow-soft);margin-bottom:9px;}
+  .tip p{margin:0;font-size:15px;color:rgba(255,255,255,.88);line-height:1.55;}
+
+  .chapter{padding:78px 0 6px;}
+  .chapter__head{margin-bottom:30px;}
+  .chapter__head .num{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.2em;color:var(--glow);}
+  .chapter__head h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.02;margin:10px 0 0;letter-spacing:-.01em;}
+  .chapter__head .meta{font-family:"DM Mono",monospace;font-size:13px;color:var(--ink-soft);margin-top:12px;}
+
+  .day{border-top:1px solid var(--line);padding:34px 0;display:grid;grid-template-columns:96px 1fr;gap:6px 28px;}
+  .day__num{font-family:"Fraunces",serif;font-weight:600;font-size:46px;line-height:.9;color:var(--ink);}
+  .day__num small{display:block;font-family:"DM Mono",monospace;font-size:11px;font-weight:400;letter-spacing:.12em;color:var(--glow);margin-top:8px;}
+  .day__date{font-family:"DM Mono",monospace;font-size:12px;color:var(--ink-soft);margin-top:14px;line-height:1.5;}
+  .day__body{min-width:0;}
+  .day__city{font-family:"Fraunces",serif;font-weight:500;font-size:23px;margin:0 0 2px;}
+  .day__city .arrow{color:var(--glow);font-family:"DM Mono",monospace;font-size:15px;padding:0 4px;}
+  .day__tag{display:inline-block;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);border-radius:20px;padding:2px 10px;margin-bottom:14px;}
+
+  /* photo strip */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 6px;}
+  .gallery.two{grid-template-columns:repeat(2,1fr);}
+  .cell{aspect-ratio:4/3;border-radius:12px;overflow:hidden;
+    background:linear-gradient(135deg,var(--teal),var(--spruce-soft));
+    box-shadow:0 14px 30px -22px rgba(20,40,40,.6);position:relative;}
+  .cell img{width:100%;height:100%;object-fit:cover;display:block;}
+  .galcap{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--ink-soft);margin:2px 0 0;}
+
+  .plan{list-style:none;margin:14px 0 0;padding:0;}
+  .plan li{position:relative;padding:7px 0 7px 26px;border-bottom:1px dashed var(--line);font-size:15.5px;}
+  .plan li:last-child{border-bottom:none;}
+  .plan li::before{content:"";position:absolute;left:6px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--glow);}
+  .plan .ic{font-style:normal;margin-right:3px;}
+  .plan .dur{font-family:"DM Mono",monospace;font-size:12px;color:var(--teal);margin-right:7px;}
+
+  .note{background:var(--stone-deep);border-radius:12px;padding:15px 17px;margin-top:16px;font-size:14.5px;line-height:1.6;}
+  .note .lab{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--glow);display:block;margin-bottom:7px;}
+  .note ol{margin:0;padding-left:18px;}
+  .note ol li{margin:3px 0;}
+  .note .star{color:var(--glow);}
+
+  .day__intro{margin:14px 0 4px;font-size:15.5px;line-height:1.75;color:var(--ink);}
+  .spotlight{background:linear-gradient(135deg,rgba(44,122,130,.08),rgba(217,99,63,.06));
+    border-left:3px solid var(--teal);border-radius:0 12px 12px 0;
+    padding:14px 17px;margin:14px 0 6px;font-size:14.5px;line-height:1.72;}
+  .spotlight .lab{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--teal);display:block;margin-bottom:7px;}
+  .chapter[style*="spruce"] ~ .chapter .spotlight{background:rgba(44,122,130,.12);border-left-color:var(--glow-soft);}
+  .chapter[style*="spruce"] ~ .chapter .spotlight .lab{color:var(--glow);}
+
+  .end{background:var(--spruce);color:#fff;margin-top:70px;padding:70px 0;text-align:center;}
+  .end .serif{font-size:clamp(30px,6vw,52px);font-weight:500;margin:0;}
+  .end p{color:rgba(255,255,255,.6);font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;margin-top:18px;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+  /* print / PDF */
+  @media print{
+    @page{size:A4;margin:11mm;}
+    html,body{background:#fff !important;font-size:12px;}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+    .reveal{opacity:1 !important;transform:none !important;}
+    .scrollcue,.ridge{display:none !important;}
+    .wrap{max-width:none;padding:0;}
+    .hero{min-height:60vh;page-break-after:always;}
+    .hero__inner{padding-bottom:5vh;}
+    .tipsband,.chapter,.intro{padding-top:16px;padding-bottom:8px;}
+    .tipsband{page-break-before:always;}
+    .chapter__head{break-after:avoid;}
+    .day{break-inside:avoid;page-break-inside:avoid;}
+    .gallery{break-inside:avoid;}
+    .cell{box-shadow:none;}
+    .note,.plan,.day__intro,.spotlight{break-inside:avoid;}
+    .end{padding:34px 0;}
+    a{color:inherit;text-decoration:none;}
+  }
+  @media(max-width:600px){
+    body{font-size:16px;}
+    .day{grid-template-columns:1fr;gap:4px;}
+    .day__num{font-size:34px;}
+    .day__num small{display:inline;margin:0 0 0 8px;}
+    .day__date{margin-top:0;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .stats{gap:22px 34px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero__img" alt="多洛米蒂 Tre Cime di Lavaredo 三峰"
+       src="https://commons.wikimedia.org/wiki/Special:FilePath/Drei%20Zinnen%20Tre%20Cime%20di%20Lavaredo%20Dolomites.jpg?width=1800"
+       onerror="this.style.display='none'">
+  <div class="scrollcue">↓ 6/29 – 7/16</div>
+  <div class="hero__inner">
+    <div class="kicker">Italy · Slovenia · Austria — Summer 2026</div>
+    <h1 class="serif">多洛米蒂</h1>
+    <p class="sub">從威尼斯的水巷出發，穿過斯洛維尼亞的湖泊與洞窟，住進白雲石群峰之間——追纜車、高山步道，以及日落時分的玫瑰金暉。</p>
+    <div class="stats">
+      <div class="stat"><div class="n mono">17</div><div class="l">天</div></div>
+      <div class="stat"><div class="n mono">3</div><div class="l">國家</div></div>
+      <div class="stat"><div class="n mono">10</div><div class="l">座纜車區</div></div>
+      <div class="stat"><div class="n mono">5</div><div class="l">高山湖</div></div>
+    </div>
+  </div>
+</header>
+
+<svg class="ridge" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:var(--spruce)">
+  <path fill="var(--stone)" d="M0,70 L0,40 L120,18 L250,46 L360,8 L470,40 L600,14 L720,44 L840,20 L980,50 L1100,16 L1230,46 L1340,22 L1440,42 L1440,70 Z"/>
+</svg>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="eyebrow reveal">The Route</div>
+    <p class="lede serif reveal">一條由水路、公路與纜車串起的路線——核心是<b>多洛米蒂</b>的十天，前後以威尼斯與米蘭收尾。</p>
+    <div class="route reveal">
+      <span>威尼斯</span><i>→</i><span>皮蘭</span><i>→</i><span>盧比安納</span><i>→</i><span>布萊德湖</span><i>→</i><span>多洛米蒂</span><i>→</i><span>因斯布魯克</span><i>→</i><span>多洛米蒂</span><i>→</i><span>維羅納</span><i>→</i><span>米蘭</span>
+    </div>
+  </div>
+</section>
+
+<section class="tipsband">
+  <div class="wrap">
+    <div class="eyebrow reveal">Before You Go</div>
+    <h2 class="reveal">行前重點</h2>
+    <div class="tipgrid reveal">
+      <div class="tip"><div class="t">租車 Car</div><p>斯洛維尼亞段租車 7/2 取車、7/14 於威尼斯還車。</p></div>
+      <div class="tip"><div class="t">什科茨揚洞穴</div><p>門票約 20 歐，導覽約 1.5 小時，需提前預約。</p></div>
+      <div class="tip"><div class="t">波斯托伊納洞窟</div><p>有中文導覽（約 1.5h）；小火車段較冷，戴帽穿暖。</p></div>
+      <div class="tip"><div class="t">威尼斯跳島</div><p>用 AVM app 買 water bus 一日票，約 25 歐。</p></div>
+      <div class="tip"><div class="t">布拉耶斯湖</div><p>16:00 之後才可開車進入湖區，繞湖一圈約 1 小時。</p></div>
+      <div class="tip"><div class="t">富內斯孤獨教堂</div><p>8:30 前抵達觀景台，順光最美。路邊付費停車。</p></div>
+      <div class="tip"><div class="t">北鏈纜車 Nordkette</div><p>日落前回到 Seegrube ❷，配咖啡看金山與藍調時刻。</p></div>
+      <div class="tip"><div class="t">西→東多洛米蒂</div><p>跨區建議走景觀路線 SS242 + SR48。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CH1 VENICE -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter__head reveal">
+      <div class="num">CH.01</div><h2 class="serif">水都 · 威尼斯</h2>
+      <div class="meta">Day 1 – 2 · 潟湖、玻璃島與彩虹島</div>
+    </div>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">01<small>DAY</small></div><div class="day__date">6/30 二<br>Jun 30</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">米蘭 <span class="arrow">→</span> 威尼斯</h3>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="威尼斯日落" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tramonto%20su%20San%20Marco%20Venezia.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="大運河" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Grand%20Canal%2C%20Venice%202016.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="聖馬可黃昏" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tramonto%20su%20San%20Marco%20Venezia%202.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">威尼斯：聖馬可日落 · 大運河 · 黃昏水巷</p>
+        <p class="day__intro">從米蘭轉乘火車進入潟湖上的威尼斯，是這趟旅程真正的起點。下午放下行李後，不必急著排隊登聖馬可鐘樓——傍晚時分沿著大運河外圍或 Castello 區的水巷散步，光線斜照、遊客漸少，更能感受這座沒有汽車的城市如何在潮汐與橋樑之間呼吸。找一條窄巷走到意外的小廣場，就是威尼斯最動人的日常。</p>
+        <div class="spotlight"><span class="lab">聖馬可廣場 · Piazza San Marco</span>威尼斯的心臟曾被稱為「歐洲的客廳」。拿破崙曾感嘆這是「世上最美的會客廳」。廣場周圍的聖馬可大教堂融合了拜占庭、哥德與文藝復興風格，外牆馬賽克在夕陽下閃著金綠色光澤。若時間有限，在廣場邊的咖啡座看鴿子與遊人來去，也是經典的威尼斯體驗——只是價格不菲，本地人多半在巷弄小酒吧用站著的方式（al banco）喝一杯。</div>
+        <ul class="plan">
+          <li><span class="dur">08:45</span>抵達威尼斯（自米蘭轉乘）</li>
+          <li><span class="dur">12:30</span><span class="ic">🚄</span>搭火車進威尼斯主島</li>
+          <li><span class="dur">15:00</span>放行李，傍晚沿水巷散步、看夕陽</li>
+        </ul>
+        <div class="note"><span class="lab">吃什麼</span>義式冰淇淋 · 披薩 · 一歐元站著小食配酒 · 炸海鮮拼盤（fritto misto）。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">02<small>DAY</small></div><div class="day__date">7/1 三<br>Jul 1</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">威尼斯跳島</h3><span class="day__tag">Water Bus</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Burano 彩虹島" src="https://commons.wikimedia.org/wiki/Special:FilePath/Burano%20-%20Rio%20di%20Terranova%20and%20Fondamenta%20Terranova%20from%20Ponte%20Vigna%2C%20to%20south.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Burano 運河" src="https://commons.wikimedia.org/wiki/Special:FilePath/Burano-Venezia-DSCF0001.JPG?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Lido 海灘" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beach%20vendor%20Lido%20di%20Venezia.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">穆拉諾玻璃島 · 布拉諾彩虹島 · 麗都海灘</p>
+        <p class="day__intro">威尼斯主島之外，潟湖上的外島各有個性：穆拉諾以玻璃工藝聞名，布拉諾用粉彩房屋妝點運河，麗都則有亞得里亞海的海灘與開闊視野。搭 water bus 一日票串連三島，節奏悠閒，適合拍照、逛小舖、在海邊吹風。記得確認船班時刻，傍晚留足時間返回主島。</p>
+        <div class="spotlight"><span class="lab">穆拉諾島 · Murano</span>自十三世紀起，威尼斯為防玻璃工坊失火，將所有玻璃匠遷至穆拉諾，從此這座小島成為歐洲玻璃藝術重鎮。街上有許多工作室與展示店，部分工坊提供示範表演，看師傅在火中拉吹玻璃，幾秒鐘便成形為花瓶或動物，令人屏息。選購時認明「Vetro Artistico Murano」標章，才是正宗穆拉諾手工玻璃。</div>
+        <ul class="plan">
+          <li><span class="dur">20m</span><span class="ic">🚢</span>穆拉諾島 Murano（玻璃島，3 號線 Ferrovia 站）</li>
+          <li><span class="dur">30m</span><span class="ic">🚢</span>布拉諾島 Burano（彩虹島，A 碼頭 12 號船）</li>
+          <li><span class="dur">50m</span><span class="ic">🚢</span>麗都島 Lido di Venezia</li>
+          <li><span class="dur">1h</span><span class="ic">🚢</span>返回主島</li>
+        </ul>
+        <div class="note"><span class="lab">交通</span>天氣好就搭水上巴士跳島，AVM app 購買一日票約 25 歐。</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CH2 SLOVENIA -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter__head reveal">
+      <div class="num">CH.02</div><h2 class="serif">斯洛維尼亞 · 湖與洞窟</h2>
+      <div class="meta">Day 3 – 5 · 海堡、地底鐘乳石與翡翠湖</div>
+    </div>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">03<small>DAY</small></div><div class="day__date">7/2 四<br>Jul 2</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">威尼斯 <span class="arrow">→</span> 皮蘭</h3><span class="day__tag">租車啟程</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="皮蘭全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Piran%20slovenia%20(48885787638).jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="塔爾蒂尼廣場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tartini%20Square%20in%20Piran.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="皮蘭城牆景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Piran%20Stadtpanorama.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">皮蘭半島 · 塔爾蒂尼廣場 · 城牆眺望</p>
+        <p class="day__intro">租車啟程，從義大利東北角跨入斯洛維尼亞。這天行程緊湊：上午可順路參觀的里雅斯特外海的米拉馬雷城堡，再深入喀斯特地貌的什科茨揚洞穴，傍晚抵達亞得里亞海懸崖上的皮蘭。皮蘭舊城區車輛禁行，需將車停在城外的 P1 或 P2 停車場，再步行進城。</p>
+        <div class="spotlight"><span class="lab">什科茨揚洞穴 · Škocjan Caves</span>這是世上少數被列入 UNESCO 的洞穴系統之一。地下河 Reka 在巨大天坑（dolines）之間穿流，形成壯觀的地下峽谷，部分洞頂高達數十公尺，人行橋懸在暗河之上，腳下濤聲迴盪。斯洛維尼亞的喀斯特地形（kras）正是英文「karst」一詞的來源——世界各地溶蝕地形，都沿用這個地名。導覽約 1.5 小時，需提前購票並跟團進入。</div>
+        <ul class="plan">
+          <li><span class="dur">2h</span><span class="ic">🚗</span>米拉馬雷城堡 Miramare 看海、午餐</li>
+          <li><span class="dur">10m</span><span class="ic">🚗</span>什科茨揚洞穴 Škocjan Caves</li>
+          <li><span class="dur">1h</span><span class="ic">🚗</span>皮蘭 Piran 舊城區</li>
+        </ul>
+        <div class="note"><span class="lab">提醒</span>早上租車出發（斯洛維尼亞段 7/2–7/14）。什科茨揚：門票約 20 歐，須提前購買；導覽約 1.5 小時，結束後可自由參觀展示區。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">04<small>DAY</small></div><div class="day__date">7/3 五<br>Jul 3</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">洞窟 <span class="arrow">→</span> 盧比安納</h3>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Postojna 洞窟" src="https://commons.wikimedia.org/wiki/Special:FilePath/Postojna%20Cave%20-%20Slovenia.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Predjama 洞窟城堡" src="https://commons.wikimedia.org/wiki/Special:FilePath/Predjama-Castle-2021-Luka-Peternel.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="盧比安納三橋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ljubljana%20-%20Tromostovje%20(48749472426).jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">波斯托伊納鐘乳石洞 · 普雷德加馬洞穴城堡 · 盧比安納三橋</p>
+        <p class="day__intro">上午探訪斯洛維尼亞最知名的兩個喀斯特奇觀：波斯托伊納洞窟以地下小火車與巨大鐘乳石大廳著稱；普雷德加馬城堡則半嵌在垂直岩壁中，外觀極具戲劇性。下午車程約 50 分鐘抵達首都盧比安納，在 Ljubljanica 河畔與三橋一帶散步，感受這座小而精的首都氛圍，傍晚直接回民宿休息。</p>
+        <div class="spotlight"><span class="lab">普雷德加馬城堡 · Predjama Castle</span>這座文藝復興城堡建在一百二十公尺高的垂直懸崖中，外牆與天然岩壁融為一體，是歐洲最獨特的「洞穴城堡」。十五世紀傳奇俠盜 Erasmus of Lueg（當地稱 Erazem）曾據守此城對抗神聖羅馬帝國，傳說他透過秘密隧道取得補給，圍困長達一年之久，最後死於背叛——而非攻城。城堡後方仍有未完全探明的洞穴系統，部分與波斯托伊納洞窟相連。時間有限在外部拍照即可，已相當震撼。</div>
+        <ul class="plan">
+          <li><span class="dur">1h</span><span class="ic">🚗</span>波斯托伊納洞窟 Postojna Cave（搭地下小火車）</li>
+          <li><span class="ic">🚗</span>普雷德加馬城堡 Predjama Castle</li>
+          <li><span class="dur">50m</span><span class="ic">🚗</span>盧比安納 Ljubljana 市區</li>
+        </ul>
+        <div class="note"><span class="lab">提醒</span><ol>
+          <li>小火車段較冷，戴帽穿暖；有中文導覽，約 1.5 小時。</li>
+          <li>洞穴城堡若時間緊，在外部拍照參觀即可。</li>
+          <li>下午逛市區後直接回民宿，不折返。住處有洗衣機。</li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">05<small>DAY</small></div><div class="day__date">7/4 六<br>Jul 4</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">布萊德湖一帶</h3><span class="day__tag">悠閒日</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="布萊德湖" src="https://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20Bled%20Island%20from%20the%20south%2C%202013.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="布萊德湖小島" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bled%20island%20July%202005.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="博希尼湖" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bohinj-jezero-Naklova%20glava.JPG?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">布萊德湖與湖心島 · 博希尼湖 Bohinj</p>
+        <p class="day__intro">難得的悠閒日。布萊德湖是斯洛維尼亞明信片上的招牌——翡翠色湖水、湖心小島與懸崖上的城堡，構成完美構圖。可搭手划船或電動船登島，也可沿湖岸步行。若布萊德人潮較多，開車 30 分鐘到博希尼湖，這裡更原始寧靜，是當地人偏愛的避暑地。記得在布萊德嚐一塊 kremšnita 奶油蛋糕。</p>
+        <div class="spotlight"><span class="lab">布萊德湖 · Lake Bled</span>湖心島上的聖母升天堂（Pilgrimage Church）已有數百年歷史，傳說若情侶能讓船夫將新郎背著新娘爬完 99 級台階且全程不語，這段婚姻便會幸福長久——這項傳統讓布萊德成為斯洛維尼亞的婚禮聖地。湖對岸懸崖上的布萊德城堡（Bled Castle）是斯洛維尼亞最古老的城堡之一，從城牆俯瞰湖面，視野開闊。清晨薄霧繚繞時，湖景如仙境，建議早到避開遊客高峰。</div>
+        <ul class="plan">
+          <li><span class="dur">30m</span><span class="ic">🚗</span>布萊德湖 Lake Bled（停留 2–3 小時）</li>
+          <li><span class="dur">30m</span><span class="ic">🚗</span>博希尼湖 Lake Bohinj</li>
+        </ul>
+        <div class="note"><span class="lab">今天的步調</span>悠閒散步的一天，在湖邊吃塊布萊德奶油蛋糕（kremšnita）。</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<svg class="ridge" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" style="background:var(--stone)">
+  <path fill="var(--spruce)" d="M0,80 L0,52 L140,20 L250,54 L380,10 L520,46 L640,16 L780,50 L900,22 L1040,54 L1160,14 L1290,48 L1380,26 L1440,46 L1440,80 Z"/>
+</svg>
+
+<!-- CH3 DOLOMITES -->
+<section class="chapter" style="background:var(--spruce);color:#fff;margin-top:0;padding-top:64px;padding-bottom:30px;">
+  <div class="wrap">
+    <div class="chapter__head reveal">
+      <div class="num" style="color:var(--glow-soft)">CH.03 · THE HEART</div>
+      <h2 class="serif">多洛米蒂 · 群峰</h2>
+      <div class="meta">Day 6 – 14 · 纜車、步道、巨石與孤獨教堂</div>
+    </div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" style="background:var(--spruce)">
+    <path fill="var(--stone)" d="M0,60 L0,38 L160,14 L300,40 L440,8 L580,36 L720,12 L860,40 L1000,16 L1140,42 L1280,18 L1440,40 L1440,60 Z"/>
+  </svg>
+</section>
+
+<section class="chapter" style="padding-top:40px;">
+  <div class="wrap">
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">06<small>DAY</small></div><div class="day__date">7/5 日<br>Jul 5</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">斯洛維尼亞 <span class="arrow">→</span> 多洛米蒂</h3><span class="day__tag">進山日</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Lago di Braies" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago%20di%20braies%207.JPG?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Tre Cime 三峰" src="https://commons.wikimedia.org/wiki/Special:FilePath/Drei%20Zinnen%20Tre%20Cime%20di%20Lavaredo%20Dolomites.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Tre Cime 夕照" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tramonto%20Tre%20cime%20di%20Lavaredo.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">布拉耶斯湖 · 三峰 Tre Cime · 三峰夕照</p>
+        <p class="day__intro">正式進入多洛米蒂。從斯洛維尼亞邊境一路北上，可選在 Orrido dello Slizza 溪谷短程健行，或到聖坎迪多小鎮午餐。下午重點是東多洛米蒂的兩大標誌：三峰（Tre Cime）全景觀景點，以及被譽為「多洛米蒂明珠」的布拉耶斯湖。注意布拉耶斯湖區管制，16:00 後才可開車進入，規劃時務必預留時間。</p>
+        <div class="spotlight"><span class="lab">三峰 · Tre Cime di Lavaredo</span>三峰是多洛米蒂最上鏡的三座岩塔，第一次世界大戰時義大利與奧匈帝國在此山壁間挖掘戰壕、開鑿隧道，殘留遺跡至今仍散布在環山步道旁。1918 年後這片山區劃入義大利，但德語名稱 Drei Zinnen（三齒）仍廣為使用。環三峰一圈約 10 公里，需 3–4 小時；若時間有限，從 Rifugio Auronzo 出發的短程步道也能近距離仰望三峰。日落時分，白雲石岩壁轉為玫瑰金色，是攝影師夢寐以求的時刻。</div>
+        <ul class="plan">
+          <li><span class="dur">1h30m</span><span class="ic">🚗</span>Orrido dello Slizza 溪谷健行約 1 小時</li>
+          <li>或：聖坎迪多 San Candido / 利恩茨 Lienz 午餐、小鎮散步</li>
+          <li>Tre Cime di Lavaredo 全景觀景點拍照</li>
+          <li><span class="ic">⛰️</span>布拉耶斯湖 Lago di Braies 繞湖一圈約 1 小時</li>
+        </ul>
+        <div class="note"><span class="lab">提醒</span>停車 Parcheggio Orrido dello Slizza。<span class="star">★</span> 布拉耶斯湖須 16:00 後才能開車進入。由西多洛米蒂前往東多洛米蒂，推薦走景觀路 SS242 + SR48；回住宿約 2 小時。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">07<small>DAY</small></div><div class="day__date">7/6 一<br>Jul 6</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">因斯布魯克 · Innsbruck</h3><span class="day__tag">越境奧地利</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="因河彩色房子" src="https://commons.wikimedia.org/wiki/Special:FilePath/Inn%20and%20Mariahilfstra%C3%9Fe%20seen%20from%20Herzog-Siegmund-Ufer%20Innsbruck%202023-09-23%2001.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="黃金屋頂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Goldenes%20Dachl%20(Innsbruck).jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Hafelekar Nordkette" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hafelekar%2C%20Tyrol%2C%20Austria%20-%20panoramio.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">因河畔彩色房子 · 黃金屋頂 · 北鏈纜車哈費萊卡峰</p>
+        <p class="day__intro">從多洛米蒂北上約兩小時，越境進入奧地利蒂羅爾州首府因斯布魯克。這座被阿爾卑斯環抱的城市，曾是神聖羅馬帝國皇帝馬克西米利安一世的權力中心。上午或下午搭北鏈纜車（Nordkettenbahnen）直上 2300 公尺的 Hafelekar 峰，傍晚回到 Seegrube 看日照金山；其餘時間在舊城區逛黃金屋頂、皇宮與因河畔的彩色外牆。</p>
+        <div class="spotlight"><span class="lab">黃金屋頂 · Goldenes Dachl</span>舊城區最顯眼的地標，建於 1500 年，為紀念馬克西米利安一世與比安卡·瑪麗亞·斯福爾扎的婚禮而建。屋頂以 2657 塊鎏金銅瓦鋪成，陽光下金光閃耀，是蒂羅爾哥特式建築的代表。皇帝常在此陽台觀看下方廣場的比武與慶典——當時的因斯布魯克是歐洲政治與文化的交會點。如今陽台下方是紀念品店與博物館，登頂可近距離看瓦片細節。</div>
+        <ul class="plan">
+          <li><span class="ic">🚗</span>開車約 2 小時抵達</li>
+          <li><span class="ic">🚠</span>北鏈纜車 Nordkettenbahnen（07–19）／南線 Patscherkofelbahn（09–17）</li>
+          <li>因斯布魯克皇宮 Hofburg · 宮廷教堂 Court Church · Experience Tirol 5D 體驗 19:00</li>
+          <li>因河橋 ＋ 彩色外牆（Colourful Houses）</li>
+        </ul>
+        <div class="note"><span class="lab">北鏈纜車 Nordkette</span>車停南邊纜車站，搭 J 線公車（約 15 分鐘）進城。北線三站：❶ Hungerburg ❷ Seegrube ❸ Hafelekarspitze。建議 ❶ 粗看 → 直上 ❸ 最高點 → <span class="star">★</span> 日落前回 ❷ Seegrube 配咖啡看金山與藍調時刻。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">08<small>DAY</small></div><div class="day__date">7/7 二<br>Jul 7</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">奧蒂塞伊 · Ortisei</h3><span class="day__tag">🚠 加爾代納山谷 Val Gardena</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Seceda 山脊" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20famous%20Sec%C3%ABda-Alm%20Ridgeline%20located%20in%20South%20Tyrol%2C%20Italy.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Seceda 全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Dolomites%20from%20Seceda.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Seceda 眺望" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zillertal%20Alps%20-%20View%20from%20Seceda.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">塞切達 Seceda 刀刃山脊 · 蓋斯勒群峰 Odle 全景 · 高處眺望</p>
+        <p class="day__intro">加爾代納山谷（Val Gardena）是三個多洛米蒂小鎮——奧蒂塞伊、聖克里斯蒂娜、塞爾瓦——的統稱，以木雕傳統與世界級滑雪場聞名。這天從奧蒂塞伊出發，可串連 Resciesa 纜車與 Mont Seuc 草坡，在高山牧場間散步；若體力足夠，也可另排一天專攻塞切達（Seceda）那條如刀刃般延伸的山脊線，是 Instagram 上多洛米蒂最經典的構圖之一。</p>
+        <div class="spotlight"><span class="lab">塞切達山脊 · Seceda</span>從纜車站走出，眼前是突然斷裂下沉的山脊——一側是平緩的草坡，另一側是近乎垂直的岩壁，蓋斯勒群峰（Gruppo delle Odle）如鋸齒般橫列天際。這裡的白雲石在日出與日落時會從灰白轉為粉橘，被登山者稱為「enrosadira」（玫瑰色渲染）。山脊步道需一定體力，但即使只到纜車站旁的觀景台，已足以理解為何塞切達被列為多洛米蒂必訪景點。記得確認纜車末班時間，山上天氣變化快，備一件防風外套。</div>
+        <ul class="plan">
+          <li><span class="ic">🚠</span>奧蒂塞伊 Resciesa 纜車（可與塞切達 Seceda 串連）</li>
+          <li>搭 Funicolare Resciesa，走 35 號步道至教堂與十字架觀景點</li>
+          <li>搭 1 號纜車到 Mont Seuc，走 6/7 號步道往 Adler Lodge 散步拍照</li>
+        </ul>
+        <div class="note"><span class="lab">停車</span>車停 Garage Resciesa，搭電梯直達纜車站。回程搭 Sole 纜車回 Mont Seuc，再走 5 分鐘回 1 號纜車。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">09<small>DAY</small></div><div class="day__date">7/8 三<br>Jul 8</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">塞拉山組 · Sella</h3><span class="day__tag">🚠 三段纜車接駁</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="塞拉山口望朗科費爾山" src="https://commons.wikimedia.org/wiki/Special:FilePath/Langkofel%20group%20from%20the%20Sella%20pass%202016.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Passo Sella" src="https://commons.wikimedia.org/wiki/Special:FilePath/Passo%20sella%20(36889542731).jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Passo Sella 全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Passo%20Sella%20(2240%20mt)%20-%20panoramio.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">塞拉山口望朗科費爾山 · Passo Sella · 山口全景</p>
+        <p class="day__intro">塞拉山組（Gruppo del Sella）環繞加爾代納、巴迪亞與法札等山谷，是義大利阿爾卑斯最壯觀的白雲石山塊之一。這天從 Plan de Gralba 出發，以三段纜車接駁登上塞拉山口（Passo Sella，2240 公尺），途中穿越「Città dei Sassi」巨石陣——天然風化的岩石如古城廢墟。沿途可遠眺朗科費爾山（Langkofel）的巨牆，感受多洛米蒂「石頭巨人」的壓迫感與壯美。</p>
+        <div class="spotlight"><span class="lab">塞拉環線 · Sella Ronda</span>環繞塞拉山組的四條公路全長約 58 公里，是歐洲最著名的高山公路之一，也是環多洛米蒂自行車賽「馬拉頓（Maratona dles Dolomites）」的核心賽道。每年七月，數千名騎士從 Campolongo、Pordoi、Sella、Gardena 四個山口翻越塞拉山組，場面壯觀。即使不騎車，開車繞行也能在每一個轉彎遇見不同的峰林角度。Passo Sella 山口視野開闊，可同時望見 Langkofel 與 Sassolungo 兩尊「石巨人」。</div>
+        <ul class="plan">
+          <li><span class="ic">🚠</span>Plan de Gralba 搭 16 號 Piz Setëur 纜車</li>
+          <li>出站步行約 5 分鐘 → 換 Gran Paradiso 纜車繼續往上</li>
+          <li>步道穿越 Città dei Sassi 巨石陣（約 15–20 分鐘）</li>
+          <li>再搭 Passo Sella 纜車至 Forcella Sassolungo 山坳</li>
+        </ul>
+        <div class="note"><span class="lab">路線</span>停車 Plan de Gralba。Passo Sella 原路折返，沿途盡是塞拉山組與朗科費爾山的巨牆景觀。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">10<small>DAY</small></div><div class="day__date">7/9 四<br>Jul 9</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">薩索隆戈山 · Sassolungo</h3><span class="day__tag">🚠 兩種走法</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="望向朗科費爾山" src="https://commons.wikimedia.org/wiki/Special:FilePath/Passo%20Sella%20-%20verso%20il%20Sassolungo.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Passo Sella 全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Passo%20Sella%20(2240%20mt)%20-%20panoramio%20-%20Michael%20Paraskevas.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Forcella Sassolungo 纜車" src="https://commons.wikimedia.org/wiki/Special:FilePath/Telecabin%20Forcella%20del%20Sassolungo%20-%20gondola.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">朗科費爾山近景 · 山口全景 · 山坳吊廂纜車</p>
+        <p class="day__intro">薩索隆戈山（Sassolungo，德語 Langkofel「長石山」）是加爾代納山谷西側最醒目的巨岩，從谷底仰望如一堵垂直石牆。這天從奧蒂塞伊出發，依天氣決定上山下山時段；纜車系統可組合成輕鬆或進階兩種走法，在高山牧場與岩壁之間感受 Sassolungo 的尺度感。夏季午後易有雷陣雨，建議備雨具並留意纜車公告。</p>
+        <div class="spotlight"><span class="lab">朗科費爾山 · Langkofel</span>海拔 3181 公尺，是加爾代納地區第二高峰，因狹長外形得名「長石山」。對登山者而言，Langkofel 北壁是經典的大岩壁路線，1906 年首登後成為阿爾卑斯攀登史上的里程碑。一般遊客雖不攀登，但從 Passo Sella 或 Forcella Sassolungo 仰望其 800 公尺高的北壁，仍能感受這座「石巨人」的威嚴。山腳 Seceda 草坡與 Sassolungo 岩壁形成強烈對比，是多洛米蒂最經典的層次構圖。</div>
+        <ul class="plan">
+          <li>奧蒂塞伊 Ortisei 出發，依天氣決定早上或下午上山</li>
+          <li>輕鬆路線：搭 2＋3 號纜車登頂 → 走 1A 步道（30 分鐘）至 4 號纜車 → 搭回 3 號</li>
+          <li><span class="star">★</span> 進階：走 1A 後接經典 2B，順環形 6 號步道（約 2 小時）至 4 號纜車</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">11<small>DAY</small></div><div class="day__date">7/10 五<br>Jul 10</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">聖克里斯蒂娜 · Santa Cristina</h3><span class="day__tag">🚠 蒙特帕納 Monte Pana</span>
+        <div class="gallery two">
+          <span class="cell"><img loading="lazy" alt="Col Raiser 眺望" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vista%20dal%20rifugio%20Col%20Raiser%20(3166821108).jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Seceda 與 Pic" src="https://commons.wikimedia.org/wiki/Special:FilePath/Urtijei%20Seceda%20and%20Pic.JPG?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">Col Raiser 山屋眺望 · 奧蒂塞伊上方群峰</p>
+        <p class="day__intro">聖克里斯蒂娜（Santa Cristina）是加爾代納山谷三鎮中最寧靜的一個，德語名 St. Christina， Ladino 語文化在此依然鮮活。Monte Pana 纜車系統可串連多段吊椅與步道，從林線緩升至高海拔牧場，正對 Langkofel 與 Sella 的巨牆。相較 Seceda 的險峻刀刃，這裡坡度溫和、視野開闊，適合闔家出遊或在 rifugio 用一頓慢午餐——義式阿爾卑斯生活的理想切片，不必趕路也能飽覽群峰。</p>
+        <div class="spotlight"><span class="lab">加爾代納山谷 · Val Gardena</span>這座山谷以木雕與滑雪聞名，居民主要說 Ladino 語——這是一種羅曼語支，介於義大利語與羅曼什語之間，在提契諾與南蒂羅爾山區已使用超過兩千年。十九世紀起，山谷工匠以木雕聖像與玩具聞名歐洲，如今鎮上仍有工作室與博物館。三鎮奧蒂塞伊（Ortisei）、聖克里斯蒂娜、塞爾瓦（Selva）各以不同纜車系統連接同一圈山峰，住其中一鎮、逐日探索，是多洛米蒂最經典的住法。</div>
+        <ul class="plan">
+          <li>聖克里斯蒂娜 Santa Cristina 出發</li>
+          <li><span class="ic">🚠</span>搭 8＋9 號 Monte Pana 纜車</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">12<small>DAY</small></div><div class="day__date">7/11 六<br>Jul 11</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">卡雷扎湖 · Lago di Carezza</h3><span class="day__tag">彩虹湖</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Carezza 與 Latemar" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago%20di%20Carezza%20and%20Latemar%2C%20Carezza%2C%20Trentino-Alto%20Adige%2C%20Italy%2C%202025%20October.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Carezza 與 Catinaccio" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago%20di%20Carezza%20and%20Catinaccio%20group%20peaks%2C%20Carezza%2C%20Trentino-Alto%20Adige%2C%20Italy%2C%202025%20October.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Carezza 湖" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago%20Carezza.JPG?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">拉泰馬爾山 Latemar 倒映 · 羅森加滕山 Catinaccio 群峰 · 翡翠湖面</p>
+        <p class="day__intro">卡雷扎湖（Lago di Carezza）號稱「彩虹湖」，湖水在不同光線下呈現綠、藍、紫等色調，背後是 Latemar 與 Catinaccio 群峰。繞湖步道約兩小時，清晨無風時倒影最清晰。若天氣不佳，可改到波爾查諾（Bolzano）市區——這座南蒂羅爾首府融合義大利與德奧文化，拱廊街適合雨天閒逛、補給起司與火腿。</p>
+        <div class="spotlight"><span class="lab">卡雷扎湖的傳說</span>民間傳說有一位彩虹仙子（Ladina 語中的 Ondina）住在湖底，每天黃昏會浮現編織彩虹。一位法師為求彩虹的秘密而施咒，仙子消失後只留下這片如寶石般的湖水——因此湖也被稱為 Lec de ergobando（彩虹之湖）。雖然是傳說，但清晨湖面如鏡、峰林倒映入水的景象，確實有夢幻之感。湖區禁止游泳，請在指定步道行走，保護這片脆弱的高山湖景。</div>
+        <ul class="plan">
+          <li>卡雷扎湖 Lago di Carezza – 中湖 Lago di Mezzo</li>
+          <li>波爾查諾 Bolzano 市區閒晃（陰天備案）</li>
+        </ul>
+        <div class="note"><span class="lab">節奏</span>繞湖一圈約兩小時，清晨無風時倒影最美。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">13<small>DAY</small></div><div class="day__date">7/12 日<br>Jul 12</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">塞爾瓦 · Selva</h3><span class="day__tag">🚠 加爾代納山谷 Val Gardena</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Sella Pass" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maratona%20dles%20Dolomites%20-%20Sella%20Pass.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Marmolada" src="https://commons.wikimedia.org/wiki/Special:FilePath/Marmolada%20-%20panoramio%20(6).jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="Belvedere 全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Panorama%20from%20Belvedere%20Dolomites.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">塞拉山口 · 馬爾莫拉達峰 Marmolada · 多洛米蒂全景</p>
+        <p class="day__intro">塞爾瓦（Selva di Val Gardena）是加爾代納三鎮中海拔最高、最靠近 Sella 山組的一個，冬季是滑雪重鎮，夏季則是健行起點。這天安排兩段纜車：Ciampinoi 短程上山到 rifugio 午餐；Dantercepies 則通往 Promenade Cir——一條面向 Sassolungo 與 Sella 的觀景步道，約一小時往返，適合不想走太遠又想飽覽群峰的人。</p>
+        <div class="spotlight"><span class="lab">馬爾莫拉達峰 · Marmolada</span>遠眺可見的多洛米蒂最高峰（3343 公尺），山頂終年積雪，有「多洛米蒂女王」之稱。第一次世界大戰時，義大利與奧匈帝國在 Marmolada 冰川上挖掘冰隧道作為前線，形成獨特的「冰之戰場」——戰爭遺跡與冰川融化的議題，使這座山在歷史與環境層面都格外沉重。如今遊客多從遠處眺望其雪冠，或在 Pordoi 山口纜車登頂近看。</div>
+        <ul class="plan">
+          <li><span class="ic">🚠</span>塞爾瓦 Selva 出發，搭 Ciampinoi 纜車 → 21A 步道步行 30 分鐘至山屋，午餐後折返</li>
+          <li><span class="ic">🚠</span>Dantercepies 纜車 → 走 Promenade Cir 往返約 1 小時</li>
+        </ul>
+        <div class="note"><span class="lab">看點</span>① 遠眺薩索隆戈山（Sassolungo）；② 背靠 Cir 峰、面向塞拉山組巨石堡壘。</div>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">14<small>DAY</small></div><div class="day__date">7/13 一<br>Jul 13</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">富內斯山谷 Val di Funes</h3><span class="day__tag">爆走日 · 無纜車</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="Santa Maddalena 教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/La%20chiesa%20di%20S.%20Maddalena%20e%20le%20Odle%20sullo%20sfondo.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="San Giovanni 教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/San%20giovanni.JPG?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="富內斯山谷" src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20dolomites%20santa%20magdalena%202024%20val%20di%20funes.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">聖瑪格達萊納孤獨教堂 · 聖喬凡尼教堂 · 蓋斯勒群峰下的山谷</p>
+        <p class="day__intro">富內斯山谷（Val di Funes）是多洛米蒂明信片上最常見的牧場與尖峰組合，這天是全行程體力消耗最大的一天——無纜車，全靠雙腳。清晨務必在 8:30 前抵達聖瑪格達萊納（Santa Maddalena）教堂觀景台，順光拍攝蓋斯勒群峰（Odle）背景；之後走 Adolf Munkel 環線約 4 小時，傍晚再補聖喬凡尼（San Giovanni）小教堂。記得多帶水、防曬與午餐。</p>
+        <div class="spotlight"><span class="lab">聖瑪格達萊納教堂 · Chiesa di Santa Maddalena</span>這座小教堂建於十四世紀，孤獨地立在綠色草坡之上，背後是 Odle 群峰如鋸齒般的剪影——這正是多洛米蒂最上鏡的構圖之一，無數攝影師與明信片都以此為場景。教堂本名為 Saint Magdalena，台灣旅遊資料常譯為「聖瑪格達萊納」或「孤獨教堂」（Chiesa solitaria）。最佳拍攝時間是日出後至上午十點，順光且遊客較少；觀景台旁有付費停車位，旺季建議更早到。</div>
+        <ul class="plan">
+          <li><span class="dur">08:30 前</span>抵達孤獨教堂觀景台（路邊付費停車），順光拍照</li>
+          <li><span class="dur">09:00–14:30</span>Zanser Alm 走 Adolf Munkel Weg 環線約 4 小時（途經 Geisler Alm 餐廳）</li>
+          <li><span class="dur">15:00</span>Parkplatz Filler — 山坡教堂、高處觀景台</li>
+        </ul>
+        <div class="note"><span class="lab">提醒</span>全天健行、無纜車，準備好水與行動糧。<span class="star">★</span> 教堂觀景台越早到越順光、人越少。</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<svg class="ridge" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" style="background:var(--stone)">
+  <path fill="var(--teal)" d="M0,80 L0,50 L150,22 L280,52 L420,16 L560,48 L700,20 L840,50 L980,24 L1120,52 L1260,20 L1380,46 L1440,30 L1440,80 Z"/>
+</svg>
+
+<!-- CH4 HOMEWARD -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter__head reveal">
+      <div class="num">CH.04</div><h2 class="serif">歸途 · 維羅納與米蘭</h2>
+      <div class="meta">Day 15 – 17 · 起司、購物與回程</div>
+    </div>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">15<small>DAY</small></div><div class="day__date">7/14 二<br>Jul 14</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">威尼斯 <span class="arrow">→</span> 米蘭</h3><span class="day__tag">還車日</span>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="維羅納競技場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Arena%20di%20Verona%202.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="維羅納競技場外觀" src="https://commons.wikimedia.org/wiki/Special:FilePath/Arena%2C%20Verona.JPG?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="維羅納競技場內部" src="https://commons.wikimedia.org/wiki/Special:FilePath/Verona%20Italy%20arena%20DSC08030.JPG?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">維羅納古羅馬競技場：夜景 · 外觀 · 內部</p>
+        <p class="day__intro">還車日，行程從多洛米蒂南下。先在維羅納停留約兩小時——這座莎士比亞筆下《羅密歐與茱麗葉》的「背景城市」，保存了義大利最完整的古羅馬競技場之一，老城市場（Piazza delle Erbe）適合買帕馬森起司、義式臘腸等伴手禮。之後驅車至威尼斯機場或市區還車，16:00 搭火車前往米蘭，為旅程收尾預留購物時間。</p>
+        <div class="spotlight"><span class="lab">維羅納競技場 · Arena di Verona</span>建於西元一世，比羅馬競技場僅小幾歲，卻保存更完整，至今仍舉辦歌劇與演唱會——夏季在星空下聽《阿依達》是維羅納最浪漫的體驗。競技場使用當地玫瑰色石灰岩建造，與城市外牆色調一致，因此維羅納被稱為「玫瑰之城」。莎士比亞從未踏足此地，但《羅密歐與茱麗葉》的背景設定使維羅納成為情侶聖地；茱麗葉故居的陽台與銅像前總是人潮不斷，摸右胸據說會帶來好姻緣——信不信由你。</div>
+        <ul class="plan">
+          <li><span class="dur">2h</span><span class="ic">🚗</span>維羅納 Verona 購買起司、逛舊城區</li>
+          <li><span class="dur">1h30m</span><span class="ic">🚗</span>威尼斯還車</li>
+          <li><span class="dur">16:00</span><span class="ic">🚄</span>搭火車至米蘭逛街</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">16<small>DAY</small></div><div class="day__date">7/15 三<br>Jul 15</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">米蘭 Milano</h3>
+        <div class="gallery">
+          <span class="cell"><img loading="lazy" alt="米蘭大教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cathedrale%20duomo%2C%20Milan.JPG?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="艾曼紐二世迴廊內部" src="https://commons.wikimedia.org/wiki/Special:FilePath/Galleria%20Vittorio%20Emanuele%20II%20(Milan)%20-%20Interior.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="迴廊與主教座堂廣場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Galleria%20Vittorio%20Emanuele%20II%20e%20piazza%20duomo.jpg?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">米蘭大教堂 · 艾曼紐二世迴廊 · 主教座堂廣場</p>
+        <p class="day__intro">米蘭是義大利時尚與商業之都，也是這趟旅程的最後一站。全天自由活動：清晨可登頂大教堂看城景，午後在艾曼紐二世迴廊（Galleria Vittorio Emanuele II）的精品店與咖啡座消磨時光，或到 Brera 區逛畫廊與古著。別忘了補齊伴手禮——Panettone 麵包、義式濃縮咖啡用品，或最後一塊 gelato。</p>
+        <div class="spotlight"><span class="lab">米蘭大教堂 · Duomo di Milano</span>動工於 1386 年，完工橫跨近六個世紀，是義大利最大的哥特式教堂之一，外牆有數千座尖塔與雕像，如白色大理石森林。傳說拿破崙在此加冕為義大利國王時，下令加速完工——因此中央塔與部分立面在十九世紀才完成。登頂可近距離看哥特式尖塔細節，天氣好時遠眺阿爾卑斯——剛離開的多洛米蒂峰林，或許就在天際線上。</div>
+        <ul class="plan">
+          <li>米蘭市區自由活動（大教堂、艾曼紐二世迴廊、購物）</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day reveal">
+      <div class="day__rail"><div class="day__num serif">17<small>DAY</small></div><div class="day__date">7/16 四<br>Jul 16</div></div>
+      <div class="day__body">
+        <h3 class="day__city serif">機場 <span class="arrow">→</span> 回程</h3>
+        <div class="gallery two">
+          <span class="cell"><img loading="lazy" alt="再見群峰" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tre%20cime%20di%20Lavaredo.jpg?width=900" onerror="this.style.display='none'"></span>
+          <span class="cell"><img loading="lazy" alt="米蘭" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cathedrale%20duomo%2C%20Milan.JPG?width=900" onerror="this.style.display='none'"></span>
+        </div>
+        <p class="galcap">告別多洛米蒂 · 米蘭最後一眼</p>
+        <p class="day__intro">旅程的最後一天，10:45 的早班機意味著清晨就要出發。前一晚確認 Malpensa 或 Linate 機場的交通——Malpensa 在市區西北約 50 公里，快線或計程車需 50–70 分鐘；Linate 較近但航班選擇較少。建議前一晚整理行李、預約計程車或查好機場快線時刻，留足緩衝。帶著山區的曬痕、起司與照片，結束這十七天穿越義大利、斯洛維尼亞、奧地利的旅程——多洛米蒂的玫瑰色山壁，大概會在往後很久的週一早晨仍偶爾浮現。</p>
+        <ul class="plan">
+          <li><span class="dur">10:45</span><span class="ic">✈️</span>早班機，預留前往機場時間</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="end">
+  <div class="wrap">
+    <p class="serif">山，等你來。</p>
+    <p>多洛米蒂 · 2026.06.29 – 07.16 · 照片來源：Wikimedia Commons</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    document.querySelectorAll('.cell img').forEach(function(img){
+      img.addEventListener('error',function(){img.style.display='none';});
+    });
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in');});return;
+    }
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
