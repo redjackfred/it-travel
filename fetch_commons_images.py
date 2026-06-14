@@ -23,16 +23,16 @@ UA = "TravelHandbook/2.0 (+https://it-travel.peiwen.dev)"
 # 18 days × 4 unique Commons filenames
 DAY_IMAGES: dict[int, list[tuple[str, str]]] = {
     0: [
-        ("米蘭主教座堂", "Cathedrale duomo, Milan.JPG"),
-        ("艾曼紐二世迴廊", "Galleria Vittorio Emanuele II (Milan) - Interior.jpg"),
-        ("米蘭中央車站", "Milano Centrale railway station.jpg"),
-        ("Navigli 運河", "Canal Nord Navigli - Milan (IT25) - 2022-09-02 - 5.jpg"),
+        ("桃園機場", "Taoyuan Airport Terminal 2 outside space frames 20091024.jpg"),
+        ("成田機場", "September 2007 Narita Airport 4.jpg"),
+        ("機窗外雲海", "Clouds from Airplane window.jpg"),
+        ("長途航班", "Aerial photograph of clouds from flight window 03.jpg"),
     ],
     1: [
-        ("聖馬可廣場日落", "Tramonto su San Marco Venezia.jpg"),
+        ("米蘭馬爾彭薩機場", "Aerial photograph of Milan Malpensa airport.jpg"),
+        ("米蘭中央車站", "Milano Centrale railway station.jpg"),
         ("威尼斯大運河", "The Grand Canal, Venice 2016.jpg"),
-        ("里亞托橋", "Ponte di Rialto Venice 1.jpg"),
-        ("威尼斯 gondola", "Venice Gondola Grand Canal.jpg"),
+        ("聖馬可廣場日落", "Tramonto su San Marco Venezia.jpg"),
     ],
     2: [
         ("布拉諾彩屋", "Burano - Rio di Terranova and Fondamenta Terranova from Ponte Vigna, to south.jpg"),
