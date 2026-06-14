@@ -1,3 +1,5 @@
 .DS_Store
 .vercel
-.img-cache
+.img-cache/
+.img-cache-v2/
+__pycache__/
