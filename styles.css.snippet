@@ -244,6 +244,52 @@
     .route-path__item--core .route-path__dot{width:40px;height:40px;}
   }
 
+  .intro__map{margin-top:44px;}
+  .trip-map{
+    height:clamp(320px,52vh,480px);
+    border-radius:calc(var(--radius) + 2px);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    background:var(--stone-deep);
+  }
+  .trip-map__cap{
+    margin:10px 0 0;
+    font-family:var(--font-meta);
+    font-size:11px;font-weight:500;
+    letter-spacing:.03em;
+    color:var(--ink-muted);
+  }
+  .trip-pin-wrap{background:none;border:none;}
+  .trip-pin{
+    display:flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    font-family:var(--font-display);
+    font-size:12px;font-weight:700;
+    color:#fff;
+    border:2px solid #fff;
+    box-shadow:0 4px 14px rgba(21,36,40,.28);
+  }
+  .trip-pin__label{transform:rotate(45deg);display:block;line-height:1;}
+  .trip-pin--main{background:var(--glow);}
+  .trip-pin--core{background:var(--teal);width:34px;height:34px;font-size:11px;}
+  .trip-pin--spot{background:var(--spruce-soft);width:26px;height:26px;font-size:10px;border-width:1.5px;}
+  .leaflet-popup-content-wrapper{
+    border-radius:var(--radius-sm);
+    font-family:var(--font-body);
+    box-shadow:var(--shadow);
+  }
+  .leaflet-popup-content{margin:12px 14px;line-height:1.5;}
+  .leaflet-popup-content strong{
+    font-family:var(--font-display);
+    font-size:14px;display:block;margin-bottom:4px;
+  }
+  .leaflet-popup-content em{
+    font-family:var(--font-meta);
+    font-style:normal;font-size:11px;color:var(--ink-muted);
+  }
+
   /* day navigation */
   .daynav{z-index:200;}
   .daynav__mobile{display:none;}
@@ -516,7 +562,7 @@
     body::before{display:none;}
     *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
     .reveal{opacity:1 !important;transform:none !important;}
-    .scrollcue,.ridge,.daynav{display:none !important;}
+    .scrollcue,.ridge,.daynav,.intro__map{display:none !important;}
     .wrap{max-width:none;padding:0;}
     .hero{min-height:60vh;page-break-after:always;margin-left:0 !important;width:auto !important;max-width:none !important;}
     .ridge{margin-left:0 !important;width:100% !important;max-width:none !important;}

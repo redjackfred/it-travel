@@ -40,6 +40,14 @@ INTRO = """<section class="intro">
         <li class="route-path__item"><span class="route-path__dot">8</span><span class="route-path__name">米蘭</span></li>
       </ol>
     </div>
+
+    <div class="intro__map reveal">
+      <div class="intro__route-head">
+        <p class="intro__route-label">路線地圖</p>
+      </div>
+      <div id="trip-map" class="trip-map" aria-label="行程路線互動地圖"></div>
+      <p class="trip-map__cap">橘色為主要停站 · 深綠為多洛米蒂細部 · 虛線為移動方向</p>
+    </div>
   </div>
 </section>"""
 
