@@ -12,13 +12,13 @@ DISCLAIMER = """
       歐洲突發狀況多，所以行程不敢排太滿；為了避免太趕，整體安排也比較鬆散，留一點彈性應付延誤或臨時想多待的地方。
     </div>"""
 
-DAY0_BODY = """        <h3 class="day__city serif">台北 ×3 · 日本 ×1 <span class="arrow">→</span> 機上</h3><span class="day__tag">飛行日</span>
+DAY0_BODY = """        <h3 class="day__city serif">台北 <span class="arrow">→</span> 機上</h3><span class="day__tag">飛行日</span>
         GALLERY_PLACEHOLDER
-        <p class="galcap">三人桃園出發 · 一人日本出發 · 機上度過</p>
-        <p class="day__intro">三人從台北出發，一人從日本出發；四人各自搭乘長途航班，在機上度過這一天。補充睡眠、調整時差，明天約 08:45 在米蘭機場會合。</p>
-        <details class="spotlight"><summary class="lab">長途航班 · 分頭出發</summary><div class="spotlight__body">跨洲航班動輒十幾小時，記得多喝水、定時起身活動。從日本出發的那位，留意航班時間是否與台北三人銜接同一班抵達米蘭。機上盡量依義大利時間小睡，落地後會順很多——行李、入境與前往中央車站，四人確認一下動線即可。</div></details>
+        <p class="galcap">四人桃園出發 · 機上度過</p>
+        <p class="day__intro">四人從台北出發，搭乘長途航班，在機上度過這一天。補充睡眠、調整時差，明天約 08:45 抵達米蘭機場。</p>
+        <details class="spotlight"><summary class="lab">長途航班 · 飛行日</summary><div class="spotlight__body">跨洲航班動輒十幾小時，記得多喝水、定時起身活動。機上盡量依義大利時間小睡，落地後入境、領行李會順很多——四人同行，動線一起確認即可。</div></details>
         <ul class="plan">
-          <li><span class="dur">—</span><span class="ic">✈️</span>三人台北出發 · 一人日本出發</li>
+          <li><span class="dur">—</span><span class="ic">✈️</span>四人台北出發</li>
           <li><span class="dur">—</span>長途航班，機上度過</li>
         </ul>"""
 
