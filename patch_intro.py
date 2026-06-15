@@ -11,7 +11,7 @@ INTRO = """<section class="intro">
   <div class="wrap">
     <header class="intro__head reveal">
       <p class="intro__eyebrow"><span class="intro__eyebrow-en">The Route</span><span class="intro__eyebrow-div">·</span><span>路線概覽</span></p>
-      <h2 class="intro__title serif">從潟湖到白雲石</h2>
+      <h2 class="intro__title serif">多洛米蒂 · 18 日環線</h2>
       <p class="intro__deck mono">2026.6.29 – 7.16 · 義大利 · 斯洛維尼亞 · 奧地利 · 18 日</p>
     </header>
 
@@ -26,17 +26,19 @@ INTRO = """<section class="intro">
     </div>
 
     <div class="intro__route reveal">
-      <p class="intro__route-label">沿途一站</p>
-      <div class="route-track" role="list">
-        <span class="route-track__stop" role="listitem"><em>01</em>威尼斯</span>
-        <span class="route-track__stop" role="listitem"><em>02</em>皮蘭</span>
-        <span class="route-track__stop" role="listitem"><em>03</em>盧比安納</span>
-        <span class="route-track__stop" role="listitem"><em>04</em>布萊德湖</span>
-        <span class="route-track__stop route-track__stop--core" role="listitem"><em>05</em>多洛米蒂<br><small>十日核心</small></span>
-        <span class="route-track__stop" role="listitem"><em>06</em>因斯布魯克</span>
-        <span class="route-track__stop" role="listitem"><em>07</em>維羅納</span>
-        <span class="route-track__stop" role="listitem"><em>08</em>米蘭</span>
+      <div class="intro__route-head">
+        <p class="intro__route-label">沿途一站</p>
       </div>
+      <ol class="route-path">
+        <li class="route-path__item"><span class="route-path__dot">1</span><span class="route-path__name">威尼斯</span></li>
+        <li class="route-path__item"><span class="route-path__dot">2</span><span class="route-path__name">皮蘭</span></li>
+        <li class="route-path__item"><span class="route-path__dot">3</span><span class="route-path__name">盧比安納</span></li>
+        <li class="route-path__item"><span class="route-path__dot">4</span><span class="route-path__name">布萊德湖</span></li>
+        <li class="route-path__item route-path__item--core"><span class="route-path__dot">5</span><span class="route-path__name">多洛米蒂</span><span class="route-path__badge">十日核心</span></li>
+        <li class="route-path__item"><span class="route-path__dot">6</span><span class="route-path__name">因斯布魯克</span></li>
+        <li class="route-path__item"><span class="route-path__dot">7</span><span class="route-path__name">維羅納</span></li>
+        <li class="route-path__item"><span class="route-path__dot">8</span><span class="route-path__name">米蘭</span></li>
+      </ol>
     </div>
   </div>
 </section>"""
