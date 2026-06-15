@@ -65,9 +65,13 @@ DAYNAV_JS = f"""
         }});
         if(mobileDay)mobileDay.textContent='Day '+n;
         if(mobileLabel&&labels[n])mobileLabel.textContent=labels[n];
-        var active=nav.querySelector('[data-day="'+n+'"]');
-        if(active&&active.closest('.daynav__mobile-track')){{
-          active.scrollIntoView({{inline:'center',block:'nearest',behavior:'smooth'}});
+        var active=nav.querySelector('.daynav__pill.is-active,.daynav__dot-link.is-active');
+        if(active){{
+          if(active.closest('.daynav__mobile-track')){{
+            active.scrollIntoView({{inline:'center',block:'nearest',behavior:'smooth'}});
+          }}else if(active.closest('.daynav__desktop')){{
+            active.scrollIntoView({{block:'nearest',behavior:'smooth'}});
+          }}
         }}
       }}
       if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){{
